@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import dbService from "../services/database";
 import { Container, PostCard } from "../components";
 
@@ -22,7 +22,7 @@ const AllPosts = () => {
         <div className="flex flex-wrap">
           {posts.map((post) => (
             <div className="p-2 w-1/4" key={post.$id}>
-              <PostCard post={post} />
+              <PostCard $id={post.$id} title={post.title} image={post.image} />
             </div>
           ))}
         </div>

@@ -84,10 +84,10 @@ export class DbService {
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        queries // Here we can straightaway write Query.equal("status", "active")]
+        queries
       );
     } catch (error) {
-      console.log(error);
+      console.log("Appwrite serive :: getPosts :: error", error);
       return false;
     }
   }
@@ -95,7 +95,7 @@ export class DbService {
   //   Method for File upload
   async uploadFile(file) {
     try {
-      return await this.bucket.createFile(
+      return await this.storage.createFile(
         conf.appwriteBucketId,
         ID.unique(),
         file
